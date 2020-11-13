@@ -34,9 +34,13 @@ System.register(["../models/index", "../views/index", "../helpers/decorator/inde
                 adiciona(event) {
                     event.preventDefault();
                     const negociacao = new index_1.Negociacao(new Date(this._inputData.val().replace(/-/g, ',')), parseInt(this._inputQuantidade.val()), parseInt(this._inputValor.val()));
+                    this._inputData.val('');
+                    this._inputQuantidade.val(1);
+                    this._inputValor.val(0.0);
                     this._negociacoes.adiciona(negociacao);
                     this._mensagemView.update('Negociação adcionada com sucesso');
                     this._negociacoesView.update(this._negociacoes);
+                    this._inputData.focus();
                 }
             };
             __decorate([
